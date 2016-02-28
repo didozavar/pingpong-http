@@ -21,7 +21,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "PingpongTest\\HTTP\\": "test/"
+            "PingpongTest\\HTTP\\": "tests/"
         }
     }
 }
