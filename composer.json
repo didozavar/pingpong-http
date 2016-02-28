@@ -8,7 +8,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Pingpong\\HTTP\\": "src/",
+            "Pingpong\\HTTP\\": "src/"
         }
     },
     "require": {
