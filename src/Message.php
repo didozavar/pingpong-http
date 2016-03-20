@@ -3,6 +3,7 @@
 namespace SiberianWolf\Http;
 
 use Psr\Http\Message\MessageInterface;
+use Psr\Http\Message\StreamInterface;
 
 class Message implements MessageInterface
 {
@@ -10,6 +11,8 @@ class Message implements MessageInterface
     protected $version;
 
     protected $body;
+
+    protected $headers;
 
     public function __construct($body, $headers, $version)
     {
@@ -88,7 +91,7 @@ class Message implements MessageInterface
      */
     public function hasHeader($name)
     {
-        return isset($this->header[$name]);
+        return isset($this->headers[$name]);
     }
 
     /**
@@ -107,7 +110,7 @@ class Message implements MessageInterface
      */
     public function getHeader($name)
     {
-        return ($this->hasHeader($name)) ? $this->header[$name] : [];
+        return ($this->hasHeader($name)) ? $this->headers[$name] : [];
     }
 
     /**
@@ -173,7 +176,7 @@ class Message implements MessageInterface
     public function withAddedHeader($name, $value)
     {
         $newMessage = clone $this;
-        $newMessage->header[$name] = $value;
+        $newMessage->headers[$name] = $value;
         return $newMessage;
     }
 
@@ -192,14 +195,14 @@ class Message implements MessageInterface
     public function withoutHeader($name)
     {
         $newMessage = clone $this;
-        unset($newMessage->header[$name]);
+        unset($newMessage->headers[$name]);
         return $newMessage;
     }
 
     /**
      * Gets the body of the message.
      *
-     * @return \Psr\Http\Message\StreamInterface Returns the body as a stream.
+     * @return StreamInterface Returns the body as a stream.
      */
     public function getBody()
     {
@@ -215,11 +218,11 @@ class Message implements MessageInterface
      * immutability of the message, and MUST return a new instance that has the
      * new body stream.
      *
-     * @param \Psr\Http\Message\StreamInterface $body Body.
+     * @param StreamInterface $body Body.
      * @return self
      * @throws \InvalidArgumentException When the body is not valid.
      */
-    public function withBody(\Psr\Http\Message\StreamInterface $body)
+    public function withBody(StreamInterface $body)
     {
         $newMessage = clone $this;
         $newMessage->body = $body;
