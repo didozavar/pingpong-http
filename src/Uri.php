@@ -3,7 +3,18 @@ namespace Pingpong\HTTP;
 
 use Psr\Http\Message\UriInterface;
 
-class Uri implements UriInterface {
+class Uri implements UriInterface
+{
+
+    protected $scheme;
+    protected $authority;
+    protected $host;
+    protected $userInfo;
+    protected $path;
+    protected $query;
+    protected $port;
+    protected $fragment;
+
     /**
      * Return the string representation as a URI reference.
      *
@@ -49,7 +60,7 @@ class Uri implements UriInterface {
      */
     public function getScheme()
     {
-        // TODO: Implement getScheme() method.
+        return $this->scheme;
     }
 
     /**
@@ -72,7 +83,7 @@ class Uri implements UriInterface {
      */
     public function getAuthority()
     {
-        // TODO: Implement getAuthority() method.
+        return $this->authority;
     }
 
     /**
@@ -92,7 +103,7 @@ class Uri implements UriInterface {
      */
     public function getUserInfo()
     {
-        // TODO: Implement getUserInfo() method.
+        return $this->userInfo;
     }
 
     /**
@@ -108,7 +119,7 @@ class Uri implements UriInterface {
      */
     public function getHost()
     {
-        // TODO: Implement getHost() method.
+        return $this->host;
     }
 
     /**
@@ -128,7 +139,7 @@ class Uri implements UriInterface {
      */
     public function getPort()
     {
-        // TODO: Implement getPort() method.
+        return $this->port;
     }
 
     /**
@@ -158,7 +169,7 @@ class Uri implements UriInterface {
      */
     public function getPath()
     {
-        // TODO: Implement getPath() method.
+        return $this->path;
     }
 
     /**
@@ -183,7 +194,7 @@ class Uri implements UriInterface {
      */
     public function getQuery()
     {
-        // TODO: Implement getQuery() method.
+        return $this->query;
     }
 
     /**
@@ -204,7 +215,7 @@ class Uri implements UriInterface {
      */
     public function getFragment()
     {
-        // TODO: Implement getFragment() method.
+        return $this->fragment;
     }
 
     /**
@@ -224,7 +235,9 @@ class Uri implements UriInterface {
      */
     public function withScheme($scheme)
     {
-        // TODO: Implement withScheme() method.
+        $newUri = clone $this;
+        $newUri->scheme = $scheme;
+        return $newUri;
     }
 
     /**
@@ -260,7 +273,9 @@ class Uri implements UriInterface {
      */
     public function withHost($host)
     {
-        // TODO: Implement withHost() method.
+        $newUri = clone $this;
+        $newUri->host = $host;
+        return $newUri;
     }
 
     /**
@@ -282,7 +297,9 @@ class Uri implements UriInterface {
      */
     public function withPort($port)
     {
-        // TODO: Implement withPort() method.
+        $newUri = clone $this;
+        $newUri->port = $port;
+        return $newUri;
     }
 
     /**
@@ -309,7 +326,9 @@ class Uri implements UriInterface {
      */
     public function withPath($path)
     {
-        // TODO: Implement withPath() method.
+        $newUri = clone $this;
+        $newUri->path = $path;
+        return $newUri;
     }
 
     /**
@@ -329,7 +348,9 @@ class Uri implements UriInterface {
      */
     public function withQuery($query)
     {
-        // TODO: Implement withQuery() method.
+        $newUri = clone $this;
+        $newUri->query = $query;
+        return $newUri;
     }
 
     /**
@@ -348,7 +369,9 @@ class Uri implements UriInterface {
      */
     public function withFragment($fragment)
     {
-        // TODO: Implement withFragment() method.
+        $newUri = clone $this;
+        $newUri->fragment = $fragment;
+        return $newUri;
     }
 
 }
