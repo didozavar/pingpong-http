@@ -1,5 +1,5 @@
 <?php
-namespace SiberianWolf\Http;
+namespace Pingpong\HTTP;
 
 use Psr\Http\Message\StreamInterface;
 

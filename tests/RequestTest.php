@@ -1,4 +1,7 @@
 <?php
+namespace PingpongTest\HTTP;
+
+use Pingpong\HTTP\Uri;
 
 class RequestTest extends \PHPUnit_Framework_TestCase
 {

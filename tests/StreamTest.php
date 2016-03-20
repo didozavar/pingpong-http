@@ -1,5 +1,7 @@
 <?php
-use SiberianWolf\Http\Stream;
+namespace PingpongTest\HTTP;
+
+use Pingpong\HTTP\Stream;
 
 class StreamTest extends \PHPUnit_Framework_TestCase
 {
